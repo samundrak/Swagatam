@@ -1,0 +1,164 @@
+<html>
+<head> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js"></script>
+	  
+	
+<script>
+    function formManipulate(){
+	 $arr = new Array();
+		 
+	  for(i =0; i < document.forms["social"].length - 1; i++){
+	      $arr[i] = document.forms["social"][i].value;
+	  }
+	  
+	  $.post("process.php",{input:$arr},function(data,status){
+	     if(status="success"){
+				if(data == 0){
+				   //unknown error  
+				   $(".response").html("Unknown Error please Try again");
+				}else if(data ==1){
+				  // empty error
+				  $(".response").html("Some Value are empty");
+				}else{
+				  // got link
+				  $(".response").html("Click Here to download: <a style='color:blue;' href='" + data + "' >Download</a>");
+				}
+				$(".response").show(1000);
+		 }
+	  });
+	  return false;
+	}
+</script>
+</head>
+<body>
+
+<div class="col-md-5" ng-app="social">
+
+<form  name="social" method="post" onSubmit="return formManipulate()">
+  <ul class="list-group">
+    <li class="list-group-item active">
+      
+         Social Pop Up Generator<br/>
+		 <div class="response" style="display:pink;"></div>
+    </li>
+	
+  
+	 <li class="list-group-item"> 
+       <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content="TITLE OF PopUp BAR." data-trigger="hover">Title</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+	  
+    </li>
+   
+        
+     
+    <li class="list-group-item"> 
+       <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content=" THIS IS ANNOUNCEMENT MESSAGE." data-trigger="hover">Announce</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+     </li>
+	 
+     <li class="list-group-item"> 
+       <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content="THIS IS ANNOUNCEMENT HEADER." data-trigger="hover">Announce header</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+     </li>
+    
+	<li class="list-group-item"> 
+       <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content=" HOW MUCH TIMES YOU WANT TO SHOW PopUp USER PER DAY. " data-trigger="hover">Limit</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+     </li>
+    
+     
+	 <li class="list-group-item"> 
+	  <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content="  HIDE PopUp WHILE CLICKED ON BLACK PART. " data-trigger="hover">Out click</label>
+      <select name="input[]">
+           <option value="ON">ON</option>
+          <option value="OFF">OFF</option>
+        </select>
+    </li>
+     
+	 <li class="list-group-item"> 
+      <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content=" HIDE PopUp WHILE "ESC" KEY PRESSED ON KEYBOARD. " data-trigger="hover">Esc click</label>
+      <select name="input[]">
+           <option value="ON">ON</option>
+          <option value="OFF">OFF</option>
+        </select>
+     </li>
+    
+       <li class="list-group-item"> 
+	 <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content="  APP ID OF FACEBOOK APPLICATION." data-trigger="hover">Facebook app id</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+     </li>
+    
+      
+	  <li class="list-group-item">
+	   <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content=" YOUR FACEBOOK PAGE USERNAME. " data-trigger="hover">Facebook page username</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+    </li>
+    
+      
+	  <li class="list-group-item"> 
+      <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content="  YOUR TWITTER USERNAME." data-trigger="hover">Twitter username</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+     </li>
+    
+      
+	  <li class="list-group-item"> 
+	   <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content=" YOUR TWITTER TIMELINE WIDGET ID YOU WILL GET THIS HERE https://twitter.com/settings/widgets/new YOU WILL GET ID WHEN YOU WILL GENERATE ID BY CLICKING CREATE WIDGET SEE DATA-WIDGET-ID IN GENERATED CODE AND ENTER CODE ONLY HERE.  " data-trigger="hover">Twitter widget id</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+      
+    </li>
+    
+	<li class="list-group-item"> 
+       <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content=" GOOGLE PAGE OR PERSON? " data-trigger="hover">Google+ Type</label>
+      <select name="input[]">
+           <option value="person">Person</option>
+          <option value="page">Page</option>
+        </select>
+    </li>
+    
+      
+	
+	  <li class="list-group-item"> 
+	  <label for="name" title="Hints"  
+      data-container="body" data-toggle="popover" data-placement="top" 
+      data-content=" THIS IS YOUR GOOGLE PLUS ID FOR PAGE/PERSON IT WILL BE LIKE THIS WHILE VISITING YOUR PROFILE IN GOOGLE PLUS PLUS.GOOGLE.COM/YOUR_GPLUS_CODE " data-trigger="hover">Google+ Id</label>
+      <input class="form-control"  type="text" name="input[]" value=""/>
+     </li>
+    
+       
+	  <li class="list-group-item"> 
+	    <input class="btn btn-primary " return="false" type="submit" name="submit"/></li>
+    </li>
+  </ul>
+  
+</form>
+ </div> 
+<script>$(function () 
+      { $("[data-toggle='popover']").popover();
+      });
+   </script>
+</body>
+</html>

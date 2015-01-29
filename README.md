@@ -1,5 +1,6 @@
 # Swagatam
 Swagatam
+//Composer> composer install samundrak/fadkit dev-master
 
 Swagatam is social popup which contains like button for facebook page , follow button for twiiter account and follow button also for 
 google plus account . There is also RSS subscribe email input area which data is currently not handled you can handled it by your own looking at source code
